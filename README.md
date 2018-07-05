@@ -1,0 +1,2 @@
+# ASP.NET-MVC-CORE
+Homework (bsa 18). ASP.NET MVC CORE
