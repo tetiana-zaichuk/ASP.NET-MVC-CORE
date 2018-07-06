@@ -1,0 +1,29 @@
+﻿@model List<DataStructuresAndLINQ.User>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Users</h2>
+<div>
+    <br />
+    <table border="2">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>CreatedAt</td>
+        </tr>
+        @foreach (var el in Model)
+        {
+        <tr>
+            <td>@el.Id</td>
+            <td>@el.Name</td>
+            <td>@el.Email</td>
+            <td>@el.CreatedAt</td>
+        </tr>
+        }
+    </table>
+    <br />
+</div>
+

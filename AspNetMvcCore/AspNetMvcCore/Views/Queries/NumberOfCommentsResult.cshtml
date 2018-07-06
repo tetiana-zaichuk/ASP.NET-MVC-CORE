@@ -1,0 +1,24 @@
+﻿@model List<Tuple<int,int>>
+@{
+    ViewData["Title"] = "NumberOfCommentsResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get the number of comments under the posts of a user</h2>
+<div>
+    <br />
+    <table border="2">
+        <tr>
+            <td>Post</td>
+            <td>Number of comments</td>
+        </tr>
+        @foreach (var el in Model)
+        {
+            <tr>
+                <td>@el.Item1</td>
+                <td>@el.</td>
+            </tr>
+        }
+    </table>
+    <br />
+</div>
