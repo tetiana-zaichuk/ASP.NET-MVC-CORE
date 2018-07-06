@@ -1,0 +1,41 @@
+﻿@model List<DataStructuresAndLINQ.Post>
+@{
+    ViewData["Title"] = "GetPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetPost</h2>
+<div>
+    <br />
+    <table border="2">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>UserId</td>
+            <td>IsComplete</td>
+            <td>CreatedAt</td>
+        </tr>
+        @foreach (var el in Model)
+        {
+            <tr>
+                <td>@el.Id</td>
+                <td>@el.Title</td>
+                <td>@el.UserId</td>
+                <td>@el.Likes</td>
+                <td>@el.CreatedAt</td>
+            </tr>
+            <tr>
+                <td colspan="5">@el.Body</td>
+            </tr>
+            foreach (var c in el.Comments)
+            {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.Body</td>
+                    <td>@c.Likes</td>
+                </tr>
+            }
+        }
+    </table>
+    <br />
+</div>

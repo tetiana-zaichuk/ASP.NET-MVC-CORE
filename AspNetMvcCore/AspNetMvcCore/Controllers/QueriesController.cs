@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AspNetMvcCore.Services;
+﻿using AspNetMvcCore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetMvcCore.Controllers
@@ -16,20 +12,43 @@ namespace AspNetMvcCore.Controllers
             queriesService=new QueriesService();
         }
 
-        public IActionResult Index()
+        public IActionResult Index() => View();
+        
+        public IActionResult NumberOfComments() => View();
+        
+        public IActionResult NumberOfCommentsResult(int id) => View(queriesService.NumberOfCommentsPost(id));
+        
+        public IActionResult CommentsListPost() => View();
+        
+        public IActionResult CommentsListPostResult(int id)
         {
-            return View();
+            return View(queriesService.CommentsListPost(id));
         }
 
-        public IActionResult NumberOfComments()
+        public IActionResult TodosListDone() => View();
+
+        public IActionResult TodosListDoneResult(int id)
         {
-            return View();
+            return View(queriesService.TodoListDone(id));
+        }
+        
+        public IActionResult UsersList(int id)
+        {
+            return View(queriesService.UserList());
         }
 
-        public IActionResult NumberOfCommentsResult(int id)
+        public IActionResult StructureUser() => View();
+        
+        /*public IActionResult StructureUserResult(int id)
         {
-            return View(queriesService.NumberOfCommentsPost(id));
-        }
+            return View(queriesService.StructureUserService(id));
+        }*/
 
+        public IActionResult StructurePost() => View();
+        
+        public IActionResult StructurePostResult(int id)
+        {
+            return View(queriesService.StructurePostService(id));
+        }
     }
 }

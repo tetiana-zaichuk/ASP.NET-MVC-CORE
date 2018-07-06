@@ -1,0 +1,13 @@
+﻿@model AspNetMvcCore.Models.Query
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Please, type the post name.</h4>
+<div>
+    <form asp-controller="Post" asp-action="GetPost" method="post">
+        Post name: <input asp-for="Name" /> <br />
+        <button type="submit">Find</button>
+    </form>
+</div>

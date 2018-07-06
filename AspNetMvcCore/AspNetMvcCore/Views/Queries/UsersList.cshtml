@@ -1,0 +1,31 @@
+﻿@model List<DataStructuresAndLINQ.User>
+@{
+    ViewData["Title"] = "UsersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get the list of users in alphabetical order with sorted todo items by length name</h2>
+<div>
+    <br />
+    <table border="2">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>TODO name</td>
+        </tr>
+        @foreach (var el in Model)
+        {
+            <tr>
+                <td>@el.Id</td>
+                <td>@el.Name</td>
+                <td>
+                    @foreach (var t in el.Todos)
+                    {
+                        @t.Name 
+                    }
+                </td>
+            </tr>
+         }
+    </table>
+    <br />
+</div>

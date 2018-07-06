@@ -9,17 +9,29 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+h2 {
+    color: #761212;
+    margin-left: 23%;
+}
+
+.query {
+    font-size: 18px;
+    line-height: 2.3;
+    margin-left: 17%;
+    color: #761212;
+}
 
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
-    line-height: 1.4;
+    line-height: 1.7;
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;
 }
+
 
 /* QR code generator */
 #qrCode {

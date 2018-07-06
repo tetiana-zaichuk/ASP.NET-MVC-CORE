@@ -1,0 +1,30 @@
+﻿@model List<DataStructuresAndLINQ.Todo>
+@{
+    ViewData["Title"] = "GetTodo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get Todo</h2>
+<div>
+    <br />
+    <table border="2">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>User id</td>
+            <td>Is complete</td>
+            <td>Created at</td>
+        </tr>
+        @foreach (var el in Model)
+        {
+            <tr>
+                <td>@el.Id</td>
+                <td>@el.Name</td>
+                <td>@el.UserId</td>
+                <td>@el.IsComplete</td>
+                <td>@el.CreatedAt</td>
+            </tr>
+        }
+    </table>
+    <br />
+</div>

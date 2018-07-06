@@ -15,7 +15,7 @@ namespace AspNetMvcCore.Services
             todos = Queries.GetTodo();
         }
 
-        public List<Todo> GetUser(string name)
+        public List<Todo> GetTodo(string name)
         {
             return todos.Where(n => n.Name == name).ToList();
         }
