@@ -4,28 +4,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Get the list of users in alphabetical order with sorted todo items by length name</h2>
+<h2 class="text-center">Get the list of users in alphabetical order with sorted todo items by length name</h2>
 <div>
     <br />
-    <table border="2">
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>TODO name</td>
-        </tr>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>User name</td>
+            </tr>
+        </thead>
         @foreach (var el in Model)
         {
-            <tr>
-                <td>@el.Id</td>
-                <td>@el.Name</td>
-                <td>
-                    @foreach (var t in el.Todos)
-                    {
-                        @t.Name 
-                    }
-                </td>
-            </tr>
-         }
+            <tbody>
+                <tr class="btn-link" id="com" data-toggle="collapse">
+                    <td>@el.Id</td>
+                    <td>@el.Name</td>
+                    <td>
+                        @foreach (var t in el.Todos)
+                        {
+                            <tr class="collapse in" id="com">
+                                <td>TODO id: @t.Id</td>
+                                <td>TODO name: @t.Name</td>
+                            </tr>
+                            
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        }
     </table>
     <br />
 </div>

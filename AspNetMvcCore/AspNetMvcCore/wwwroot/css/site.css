@@ -12,7 +12,11 @@
 
 h2 {
     color: #761212;
-    margin-left: 23%;
+    text-align: center;
+}
+
+table .collapse.in {
+    display:table-row;
 }
 
 .query {

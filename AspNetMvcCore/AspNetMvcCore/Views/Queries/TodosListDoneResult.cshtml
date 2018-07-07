@@ -8,18 +8,25 @@
 
 <div>
     <br />
-    <table border="2">
-        <tr>
-            <td>Todo id</td>
-            <td>Todo name</td>
-        </tr>
-        @foreach (var el in Model)
-        {
-        <tr>
-            <td>@el.Id</td>
-            <td>@el.Name</td>
-        </tr>
-        }
-    </table>
+    @if (Model?.Any() != true)
+    {
+        <p class="text-center">There are no TODOs.</p>
+    }
+    else
+    {
+        <table class="table text-center">
+            <tr>
+                <td>Todo id</td>
+                <td>Todo name</td>
+            </tr>
+            @foreach (var el in Model)
+            {
+                <tr>
+                    <td>@el.Id</td>
+                    <td>@el.Name</td>
+                </tr>
+            }
+        </table>
+    }
     <br />
 </div>

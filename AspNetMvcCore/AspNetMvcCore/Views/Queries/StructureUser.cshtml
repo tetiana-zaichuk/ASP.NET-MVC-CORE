@@ -5,13 +5,16 @@
 }
 
 <h2>Get the structure about the user</h2>
-
+<br/>
 <h4>Please, type the user id.</h4>
+<br/>
 <div>
-    <form asp-controller="Queries" asp-action="StructureUser" method="post">
-        User id: <input asp-for="Id" /> <br />
+    <form asp-controller="Queries" asp-action="StructureUserResult" method="post">
+        User id: <input asp-for="Id" /> 
+        <br />
         <button type="submit">Find</button>
     </form>
-
+    <br/>
     <a asp-action="Index">Back to List</a>
+    <br/>
 </div>

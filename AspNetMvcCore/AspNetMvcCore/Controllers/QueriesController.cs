@@ -20,35 +20,21 @@ namespace AspNetMvcCore.Controllers
         
         public IActionResult CommentsListPost() => View();
         
-        public IActionResult CommentsListPostResult(int id)
-        {
-            return View(queriesService.CommentsListPost(id));
-        }
-
+        public IActionResult CommentsListPostResult(int id) => View(queriesService.CommentsListPost(id));
+        
         public IActionResult TodosListDone() => View();
 
-        public IActionResult TodosListDoneResult(int id)
-        {
-            return View(queriesService.TodoListDone(id));
-        }
+        public IActionResult TodosListDoneResult(int id) => View(queriesService.TodoListDone(id));
         
-        public IActionResult UsersList(int id)
-        {
-            return View(queriesService.UserList());
-        }
-
+        public IActionResult UsersList(int id) => View(queriesService.UserTodoList());
+        
         public IActionResult StructureUser() => View();
         
-        /*public IActionResult StructureUserResult(int id)
-        {
-            return View(queriesService.StructureUserService(id));
-        }*/
-
+        public IActionResult StructureUserResult(int id) => View(queriesService.StructureUserService(id));
+        
         public IActionResult StructurePost() => View();
         
-        public IActionResult StructurePostResult(int id)
-        {
-            return View(queriesService.StructurePostService(id));
-        }
+        public IActionResult StructurePostResult(int id) => View(queriesService.StructurePostService(id));
+        
     }
 }
