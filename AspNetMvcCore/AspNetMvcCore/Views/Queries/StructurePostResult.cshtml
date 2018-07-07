@@ -1,0 +1,29 @@
+﻿@model ValueTuple<DataStructuresAndLINQ.Post, DataStructuresAndLINQ.Comment, DataStructuresAndLINQ.Comment, int>
+@{
+    ViewData["Title"] = "StructurePostResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Get the structure about the post</h2>
+
+<div>
+    <br />
+    <table border="2">
+            <tr>
+                <td>Post title: </td>
+                <td> @Model.Item1.Title </td>
+            </tr>
+            <tr>
+                <td>The longest comment of the post: </td>
+                <td> @Model.Item2.Body</td>
+            </tr>
+            <tr>
+                <td>The most likes comment of the post: </td>
+                <td> @Model.Item3.Body</td>
+            </tr>
+            <tr>
+                <td>Number of bad comments under the post: </td>
+                <td> @Model.Item4</td>
+            </tr>
+    </table>
+    <br />
+</div>

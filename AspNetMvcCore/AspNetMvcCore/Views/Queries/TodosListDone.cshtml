@@ -1,0 +1,17 @@
+﻿@model AspNetMvcCore.Models.Query
+@{
+    ViewData["Title"] = "TodosListDone";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get the list of todos that are executed for a user</h2>
+
+<h4>Please, type the user id.</h4>
+<div>
+    <form asp-controller="Queries" asp-action="TodosListDoneResult" method="post">
+        User id: <input asp-for="Id" /> <br />
+        <button type="submit">Find</button>
+    </form>
+
+    <a asp-action="Index">Back to List</a>
+</div>

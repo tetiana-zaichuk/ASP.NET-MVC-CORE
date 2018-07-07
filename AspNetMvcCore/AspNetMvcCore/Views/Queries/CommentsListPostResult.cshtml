@@ -1,0 +1,29 @@
+﻿@model List<IGrouping<int,DataStructuresAndLINQ.Comment>>
+@{
+    ViewData["Title"] = "CommentsListPostResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get the list of short comments under the posts of a user</h2>
+<div>
+    <br />
+    <table border="2">
+        <tr>
+            <td>Post id</td>
+            <td>Comments</td>
+        </tr>
+        @foreach (var el in Model)
+        {
+            <tr>
+                <td>@el.Key</td>
+                <td>
+                @foreach (var c in el)
+                {
+                    @c.Body;
+                }
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+</div>

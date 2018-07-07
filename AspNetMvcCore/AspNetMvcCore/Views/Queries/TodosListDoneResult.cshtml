@@ -1,30 +1,25 @@
-﻿@model List<DataStructuresAndLINQ.User>
+﻿@model List<DataStructuresAndLINQ.Todo>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "TodosListDoneResult";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Users</h2>
+<h2>Get the list of todos that are executed for a user</h2>
+
 <div>
     <br />
     <table border="2">
         <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Email</td>
-            <td>CreatedAt</td>
+            <td>Todo id</td>
+            <td>Todo name</td>
         </tr>
         @foreach (var el in Model)
         {
         <tr>
             <td>@el.Id</td>
             <td>@el.Name</td>
-            <td>@el.Email</td>
-            <td>@el.CreatedAt</td>
-
         </tr>
         }
     </table>
     <br />
 </div>
-
