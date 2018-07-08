@@ -1,10 +1,13 @@
 ﻿using System.Linq;
+using AutoMapper;
 using DataStructuresAndLINQ;
 
 namespace AspNetMvcCore.Services
 {
     public class UserService
     {
-        public User GetUser(string name) => Startup.Users.Where(n=>n.Name==name).ToList().FirstOrDefault();
+        public Models.User GetUser(string name) 
+            => Mapper.Map<User, Models.User>(Startup.Users.Where(n=>n.Name==name)
+                .ToList().FirstOrDefault());
     }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AspNetMvcCore.Models
 {
@@ -12,7 +10,7 @@ namespace AspNetMvcCore.Models
         public string Name { get; set; }
         public string Avatar { get; set; }
         public string Email { get; set; }
-        public List<Post> Posts;
-        public List<Todo> Todos;
+        public List<Post> Posts = new List<Post>();
+        public List<Todo> Todos = new List<Todo>();
     }
 }

@@ -1,4 +1,4 @@
-﻿@model DataStructuresAndLINQ.User
+﻿@model User
 @{
     ViewData["Title"] = "UserResult";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -37,7 +37,7 @@
                 }
                 @foreach (var post in Model.Posts)
                 {
-                    <tr class="collapse in" data-toggle="collapse">
+                    <tr class="collapse in">
                         <td>Post likes: @post.Likes</td>
                         <td>Post title: @Html.ActionLink(@post.Title, "PostResult", "Post", new { post.Title })</td>
                         <td>Post body: @post.Body</td>

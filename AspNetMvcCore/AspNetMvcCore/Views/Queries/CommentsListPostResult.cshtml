@@ -20,12 +20,12 @@
             @foreach (var item in Model)
             {
                 <tbody>
-                    <tr class="btn-link" type="button" id="com" data-toggle="collapse" data-target=".com">
+                    <tr class="btn-link">
                         <td>@Html.ActionLink("Post id: " + @item.Key, "PostResultId", "Post", new { id=item.Key })</td>
                     </tr>
                     @foreach (var c in item)
                     {
-                        <tr class="collapse in" id="com">
+                        <tr class="collapse in">
                           <td>Comment: @c.Body</td>
                         </tr>
                     }

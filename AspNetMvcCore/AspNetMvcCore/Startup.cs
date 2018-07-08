@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using DataStructuresAndLINQ;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,7 +13,7 @@ namespace AspNetMvcCore
 {
     public class Startup
     {
-        public static List<User> Users = Queries.BindEntities();
+        public static List<User> Users= Queries.BindEntities();
 
         public Startup(IConfiguration configuration)
         {
@@ -25,6 +26,14 @@ namespace AspNetMvcCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<User,Models.User>();
+                cfg.CreateMap<Post, Models.Post>();
+                cfg.CreateMap<Todo, Models.Todo>();
+                cfg.CreateMap<Comment, Models.Comment>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

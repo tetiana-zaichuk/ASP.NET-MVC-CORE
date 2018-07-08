@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AspNetMvcCore.Services;
+﻿using AspNetMvcCore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetMvcCore.Controllers
@@ -11,11 +7,8 @@ namespace AspNetMvcCore.Controllers
     {
         private readonly TodoService _todoService;
 
-        public TodoController()
-        {
-            _todoService = new TodoService();
-        }
-
+        public TodoController() =>_todoService = new TodoService();
+        
         public IActionResult TodoInput() => View();
 
         public IActionResult TodoResult(string name) => View(_todoService.GetTodo(name));

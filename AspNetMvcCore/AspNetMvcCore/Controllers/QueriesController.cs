@@ -5,36 +5,33 @@ namespace AspNetMvcCore.Controllers
 {
     public class QueriesController : Controller
     {
-        private QueriesService queriesService;
+        private readonly QueriesService _queriesService;
 
-        public QueriesController()
-        {
-            queriesService=new QueriesService();
-        }
+        public QueriesController() =>_queriesService=new QueriesService();
 
         public IActionResult QueriesList() => View();
         
         public IActionResult NumberOfComments() => View();
         
-        public IActionResult NumberOfCommentsResult(int id) => View(queriesService.NumberOfCommentsPost(id));
+        public IActionResult NumberOfCommentsResult(int id) => View(_queriesService.NumberOfCommentsPost(id));
         
         public IActionResult CommentsListPost() => View();
         
-        public IActionResult CommentsListPostResult(int id) => View(queriesService.CommentsListPost(id));
+        public IActionResult CommentsListPostResult(int id) => View(_queriesService.CommentsListPost(id));
         
         public IActionResult TodosListDone() => View();
 
-        public IActionResult TodosListDoneResult(int id) => View(queriesService.TodoListDone(id));
+        public IActionResult TodosListDoneResult(int id) => View(_queriesService.TodoListDone(id));
         
-        public IActionResult UsersList(int id) => View(queriesService.UserTodoList());
+        public IActionResult UsersList(int id) => View(_queriesService.UserTodoList());
         
         public IActionResult StructureUser() => View();
         
-        public IActionResult StructureUserResult(int id) => View(queriesService.StructureUserService(id));
+        public IActionResult StructureUserResult(int id) => View(_queriesService.StructureUserService(id));
         
         public IActionResult StructurePost() => View();
         
-        public IActionResult StructurePostResult(int id) => View(queriesService.StructurePostService(id));
+        public IActionResult StructurePostResult(int id) => View(_queriesService.StructurePostService(id));
         
     }
 }

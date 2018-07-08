@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AspNetMvcCore.Models
 {
@@ -13,6 +11,6 @@ namespace AspNetMvcCore.Models
         public string Body { get; set; }
         public int UserId { get; set; }
         public int Likes { get; set; }
-        public List<Comment> Comments;
+        public List<Comment> Comments = new List<Comment>();
     }
 }

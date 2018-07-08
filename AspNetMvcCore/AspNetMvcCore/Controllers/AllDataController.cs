@@ -7,11 +7,8 @@ namespace AspNetMvcCore.Controllers
     {
         private readonly AllData _allData;
 
-        public AllDataController()
-        {
-            _allData = new AllData();
-        }
-
+        public AllDataController() => _allData = new AllData();
+        
         public IActionResult AllData() => View(_allData.GetAll());
     }
 }
