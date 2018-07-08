@@ -1,0 +1,45 @@
+﻿@model ValueTuple<User, Post, int?, int?, Post, Post>
+    @{
+        ViewData["Title"] = "StructureUserResult";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2 class="text-center">Get the structure about the user</h2>
+    <div>
+        <br />
+        @if (Model.Item2 != null && Model.Item3 != null && Model.Item4 != null)
+        {
+            <table class="table text-center table-hover">
+                <tr>
+                    <td>User name: </td>
+                    <td> @Html.ActionLink(@Model.Item1.Name, "UserResult", "User", new { @Model.Item1.Name })</td>
+                </tr>
+                <tr>
+                    <td>The last post title: </td>
+                    <td> @Html.ActionLink(@Model.Item2.Title, "PostResult", "Post", new { @Model.Item2.Title })</td>
+                </tr>
+                <tr>
+                    <td>Number of comments under the last post: </td>
+                    <td> @Model.Item3</td>
+                </tr>
+                <tr>
+                    <td>Number of unfulfilled tasks: </td>
+                    <td> @Model.Item4</td>
+                </tr>
+                <tr>
+                    <td>The most popular user post (with a long text): </td>
+                    <td> @Html.ActionLink(@Model.Item5.Title, "PostResult", "Post", new { @Model.Item5.Title })</td>
+                </tr>
+                <tr>
+                    <td>The most popular user post (most of the likes): </td>
+                    <td> @Html.ActionLink(@Model.Item6.Title, "PostResult", "Post", new { @Model.Item6.Title })</td>
+                </tr>
+            </table>
+        }
+        else
+        {
+            <p class="text-center">There are no comments/posts.</p>
+        }
+        <br />
+    </div>
+

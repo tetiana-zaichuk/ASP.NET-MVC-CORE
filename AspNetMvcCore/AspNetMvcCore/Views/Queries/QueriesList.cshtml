@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "QueriesList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Please, select the query. </h2>
+<div class="query">
+    <ul style="list-style-type:disc;">
+        <li>@Html.ActionLink("Get the number of comments under the posts of a user", "NumberOfComments")</li>
+        <li>@Html.ActionLink("Get the list of short comments under the posts of a user", "CommentsListPost")</li>
+        <li>@Html.ActionLink("Get the list of todos that are executed for a user", "TodosListDone")</li>
+        <li>@Html.ActionLink("Get the list of users in alphabetical order", "UsersList")</li>
+        <li>@Html.ActionLink("Get the structure about the user", "StructureUser")</li>
+        <li>@Html.ActionLink("Get the structure about the post", "StructurePost")</li>
+    </ul>
+</div>

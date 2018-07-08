@@ -1,0 +1,45 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "UsersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Get the list of users in alphabetical order with sorted todo items by length name</h2>
+<div>
+    <br />
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="text-center">
+                <td>Id</td>
+                <td>User name</td>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr class="bg-info text-center">
+                    <td>@item.Id</td>
+                    <td>@Html.ActionLink(@item.Name, "UserResult", "User", new { item.Name })</td>
+                </tr>
+                <tr class="btn-link text-left" type="button" data-toggle="collapse" data-target="#col_@item.Id">
+                    <td colspan="2" >Todos</td>
+                </tr>
+            <tr>
+                <td colspan="2">
+                        <div class="collapse in bg-success" id="col_@item.Id">
+                            @foreach (var todo in item.Todos)
+                            {
+                                <div>
+                                    TODO name:
+                                    @Html.ActionLink(@todo.Name, "TodoResult", "Todo", new { todo.Name })
+                                </div>
+                            }
+                        </div>
+                </td>
+            </tr>
+            </tbody>
+        }
+    </table>
+    <br />
+</div>

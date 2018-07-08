@@ -1,0 +1,34 @@
+﻿@model List<Todo>
+@{
+    ViewData["Title"] = "TodoResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Todo</h2>
+<div>
+    <br />
+    <table class="table text-center table-hover">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Todo name</td>
+                <td>User id</td>
+                <td>Is complete</td>
+                <td>Created at</td>
+            </tr>
+        </thead>
+        @foreach (var el in Model)
+        {
+        <tbody>
+            <tr>
+                <td>@el.Id</td>
+                <td>@el.Name</td>
+                <td>@el.UserId</td>
+                <td>@el.IsComplete</td>
+                <td>@el.CreatedAt</td>
+            </tr>
+        </tbody>
+        }
+    </table>
+    <br />
+</div>

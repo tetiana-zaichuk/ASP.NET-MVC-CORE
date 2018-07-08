@@ -1,0 +1,43 @@
+﻿@model List<IGrouping<int, DataStructuresAndLINQ.Comment>>
+@{
+    ViewData["Title"] = "CommentsListPostResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Get the list of short comments under the posts of a user</h2>
+<div>
+    <br />
+    @if (Model?.Any() != true)
+    {
+        <p class="text-center">There are no comments/posts.</p>
+    }
+    else
+    {
+        <table class="table table-responsive table-hover">
+           
+            @foreach (var item in Model)
+            {
+                <tbody>
+                    <tr class="btn-link text-center">
+                        <td>@Html.ActionLink("Post id: " + @item.Key, "PostResultId", "Post", new { id = item.Key })</td>
+                    </tr>
+                    <tr class="btn-link text-left" type="button" data-toggle="collapse" data-target="#col_@item.Key">
+                        <td colspan="2">Comments</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="collapse in bg-success" id="col_@item.Key">
+                                @foreach (var c in item)
+                                {
+                                    <div>Comment: @c.Body</div>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+    }
+    <br />
+</div>

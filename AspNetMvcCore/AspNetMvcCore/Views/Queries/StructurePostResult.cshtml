@@ -1,0 +1,29 @@
+﻿@model ValueTuple<Post, Comment, Comment, int>
+@{
+    ViewData["Title"] = "StructurePostResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-center">Get the structure about the post</h2>
+
+<div>
+    <br />
+    <table class="table text-center table-hover">
+            <tr>
+                <td>Post title: </td>
+                <td> @Html.ActionLink(@Model.Item1.Title, "PostResult", "Post", new { @Model.Item1.Title }) </td>
+            </tr>
+            <tr>
+                <td>The longest comment of the post: </td>
+                <td> @Model.Item2.Body</td>
+            </tr>
+            <tr>
+                <td>The most likes comment of the post: </td>
+                <td> @Model.Item3.Body</td>
+            </tr>
+            <tr>
+                <td>Number of bad comments under the post: </td>
+                <td> @Model.Item4</td>
+            </tr>
+    </table>
+    <br />
+</div>
