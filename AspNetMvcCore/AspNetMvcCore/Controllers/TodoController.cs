@@ -9,21 +9,15 @@ namespace AspNetMvcCore.Controllers
 {
     public class TodoController : Controller
     {
-        private TodoService todoService;
+        private readonly TodoService _todoService;
 
         public TodoController()
         {
-            todoService=new TodoService();
+            _todoService = new TodoService();
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
 
-        public IActionResult GetTodo(string name)
-        {
-            return View(todoService.GetTodo(name));
-        }
+        public IActionResult GetTodo(string name) => View(_todoService.GetTodo(name));
     }
 }

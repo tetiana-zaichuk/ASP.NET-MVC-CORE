@@ -4,19 +4,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Get Todo</h2>
+<h2 class="text-center">Todo</h2>
 <div>
     <br />
-    <table border="2">
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>User id</td>
-            <td>Is complete</td>
-            <td>Created at</td>
-        </tr>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Todo name</td>
+                <td>User id</td>
+                <td>Is complete</td>
+                <td>Created at</td>
+            </tr>
+        </thead>
         @foreach (var el in Model)
         {
+        <tbody>
             <tr>
                 <td>@el.Id</td>
                 <td>@el.Name</td>
@@ -24,6 +27,7 @@
                 <td>@el.IsComplete</td>
                 <td>@el.CreatedAt</td>
             </tr>
+        </tbody>
         }
     </table>
     <br />

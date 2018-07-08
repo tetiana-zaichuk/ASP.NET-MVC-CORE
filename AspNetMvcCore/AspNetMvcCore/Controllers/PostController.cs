@@ -1,29 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AspNetMvcCore.Services;
+﻿using AspNetMvcCore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetMvcCore.Controllers
 {
     public class PostController : Controller
     {
-        private PostService postService;
+        private readonly PostService _postService;
 
         public PostController()
         {
-            postService = new PostService();
+            _postService = new PostService();
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
 
-        public IActionResult GetPost(string name)
-        {
-            return View(postService.GetPost(name));
-        }
+        public IActionResult GetPost(string name) => View(_postService.GetPost(name));
     }
 }

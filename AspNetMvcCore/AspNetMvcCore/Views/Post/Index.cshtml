@@ -3,11 +3,19 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h4>Please, type the post name.</h4>
-<div>
-    <form asp-controller="Post" asp-action="GetPost" method="post">
-        Post name: <input asp-for="Name" /> <br />
-        <button type="submit">Find</button>
-    </form>
+<div class="text-center">
+    <br />
+    <h2>Post</h2>
+    <br />
+    <h4>Please, type the post title.</h4>
+    <br />
+    <div>
+        <form asp-controller="Post" asp-action="GetPost" method="post">
+            Post name: <input asp-for="Name" />
+            <br />
+            <br />
+            <button type="submit"> Find </button>
+        </form>
+        <br />
+    </div>
 </div>

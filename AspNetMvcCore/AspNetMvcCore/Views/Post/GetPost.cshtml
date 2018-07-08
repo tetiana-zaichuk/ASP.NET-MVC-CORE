@@ -4,37 +4,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>GetPost</h2>
+<h2 class="text-center">GetPost</h2>
 <div>
     <br />
-    <table border="2">
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>UserId</td>
-            <td>IsComplete</td>
-            <td>CreatedAt</td>
-        </tr>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Post title</td>
+                <td>UserId</td>
+                <td>Body</td>
+                <td>Likes</td>
+                <td>CreatedAt</td>
+            </tr>
+        </thead>
         @foreach (var el in Model)
         {
-            <tr>
+        <tbody>
+            <tr class="btn-link" type="button" id="com" data-toggle="collapse">
                 <td>@el.Id</td>
                 <td>@el.Title</td>
                 <td>@el.UserId</td>
+                <td>@el.Body</td>
                 <td>@el.Likes</td>
                 <td>@el.CreatedAt</td>
             </tr>
-            <tr>
-                <td colspan="5">@el.Body</td>
-            </tr>
-            foreach (var c in el.Comments)
+            @foreach (var c in el.Comments)
             {
-                <tr>
-                    <td>@c.Id</td>
-                    <td>@c.Body</td>
-                    <td>@c.Likes</td>
-                </tr>
+            <tr class="collapse in">
+                <td>Comment id: @c.Id</td>
+                <td>Comment post id: @c.PostId</td>
+                <td>Comment body: @c.Body</td>
+                <td>Comment likes: @c.Likes</td>
+                <td>Comment user id: @c.UserId</td>
+                <td>Comment created at: @c.CreatedAt</td>
+            </tr>
             }
+            
+        </tbody>
         }
     </table>
     <br />

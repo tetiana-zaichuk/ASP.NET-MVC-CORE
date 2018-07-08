@@ -3,11 +3,20 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h4>Please, type the todo name.</h4>
-<div>
-    <form asp-controller="Todo" asp-action="GetTodo" method="post">
-        Todo name: <input asp-for="Name" /> <br />
-        <button type="submit">Find</button>
-    </form>
+<div class="text-center">
+    <br/>
+    <h2>Todo</h2>
+    <br/>
+    <h4>Please, type the todo name.</h4>
+    <br/>
+    <div>
+        <form asp-controller="Todo" asp-action="GetTodo" method="post">
+            Todo name: <input asp-for="Name"/> 
+            <br/>
+            <br/>
+            <button type="submit"> Find </button>
+            <br/>
+        </form>
+        <br/>
+    </div>
 </div>
