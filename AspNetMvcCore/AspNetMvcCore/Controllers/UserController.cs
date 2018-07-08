@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AspNetMvcCore.Services;
+﻿using AspNetMvcCore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetMvcCore.Controllers
 {
     public class UserController : Controller
     {
-        private UserService userService;
+        private readonly UserService _userService;
 
         public UserController()
         {
-            userService=new UserService();
+            _userService=new UserService();
         }
 
-        //GET: /User/Index
-        public IActionResult Index()
-        {
-            return View(userService.GetAll());
-        }
+        //GET: /User/UserInput
+        public IActionResult UserInput() => View();
+        
+        public IActionResult UserResult(string name) => View(_userService.GetUser(name));
     }
 }

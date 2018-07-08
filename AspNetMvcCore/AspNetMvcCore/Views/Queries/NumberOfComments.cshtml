@@ -5,19 +5,20 @@
     ViewData["Title"] = "NumberOfComments";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Get the number of comments under the posts of a user</h2>
-<br/>
-<h4>Please, type the user id.</h4>
-<br/>
-<div>
-    <form asp-controller="Queries" asp-action="NumberOfCommentsResult" method="post">
-        User id: <input asp-for="Id"/> 
-        <br/>
-        <button type="submit">Find</button>
-    </form>
-    <br/>
-    <a asp-action="Index">Back to List</a>
-    <br/>
+<div class="text-center">
+    <h2>Get the number of comments under the posts of a user</h2>
+    <br />
+    <h4>Please, type the user id.</h4>
+    <br />
+    <div>
+        <form asp-controller="Queries" asp-action="NumberOfCommentsResult" method="post">
+            User id: <input asp-for="Id" />
+            <br />
+            <br />
+            <button type="submit">Find</button>
+        </form>
+        <br />
+        <a asp-action="QueriesList">Back to List</a>
+        <br />
+    </div>
 </div>
-

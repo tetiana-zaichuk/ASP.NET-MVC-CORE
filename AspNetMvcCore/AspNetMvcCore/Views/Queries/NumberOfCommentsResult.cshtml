@@ -3,26 +3,34 @@
     ViewData["Title"] = "NumberOfCommentsResult";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Get the number of comments under the posts of a user</h2>
-<div>
-    <br />
-    <table class="table text-center">
-        <thead>
-            <tr>
-                <td>Post id</td>
-                <td>Number of comments</td>
-            </tr>
-        </thead>
-        @foreach (var el in Model)
-        {
-            <tbody>
-                <tr>
-                    <td>@el.Item1</td>
-                    <td>@el.Item2</td>
-                </tr>
-            </tbody>
-            }
-        </table>
+<div class="text-center">
+    <h2>Get the number of comments under the posts of a user</h2>
+    <div>
         <br />
+        @if (Model?.Any() != true)
+        {
+            <p class="text-center">There are no comments/posts.</p>
+        }
+        else
+        {
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <td>Post id</td>
+                        <td>Number of comments</td>
+                    </tr>
+                </thead>
+                @foreach (var el in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@Html.ActionLink("" + @el.Item1, "PostResultId", "Post", new { id=el.Item1 })</td>
+                            <td>@el.Item2</td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <br />
+        }
     </div>
+</div>

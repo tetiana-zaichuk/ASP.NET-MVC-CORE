@@ -3,30 +3,30 @@
     ViewData["Title"] = "TodosListDoneResult";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Get the list of todos that are executed for a user</h2>
-
-<div>
-    <br />
-    @if (Model?.Any() != true)
-    {
-        <p class="text-center">There are no TODOs.</p>
-    }
-    else
-    {
-        <table class="table text-center">
-            <tr>
-                <td>Todo id</td>
-                <td>Todo name</td>
-            </tr>
-            @foreach (var el in Model)
-            {
+<div class="text-center">
+    <h2>Get the list of todos that are executed for a user</h2>
+    <div>
+        <br />
+        @if (Model?.Any() != true)
+        {
+            <p class="text-center">There are no TODOs.</p>
+        }
+        else
+        {
+            <table class="table text-center">
                 <tr>
-                    <td>@el.Id</td>
-                    <td>@el.Name</td>
+                    <td>Todo id</td>
+                    <td>Todo name</td>
                 </tr>
-            }
-        </table>
-    }
-    <br />
+                @foreach (var todo in Model)
+                {
+                    <tr>
+                        <td>@todo.Id</td>
+                        <td>@Html.ActionLink(@todo.Name, "TodoResult", "Todo", new { todo.Name })</td>
+                    </tr>
+                }
+            </table>
+        }
+        <br />
+    </div>
 </div>

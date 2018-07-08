@@ -12,11 +12,11 @@
             <table class="table text-center">
                 <tr>
                     <td>User name: </td>
-                    <td> @Model.Item1.Name </td>
+                    <td> @Html.ActionLink(@Model.Item1.Name, "UserResult", "User", new { @Model.Item1.Name })</td>
                 </tr>
                 <tr>
                     <td>The last post title: </td>
-                    <td> @Model.Item2.Title</td>
+                    <td> @Html.ActionLink(@Model.Item2.Title, "PostResult", "Post", new { @Model.Item2.Title })</td>
                 </tr>
                 <tr>
                     <td>Number of comments under the last post: </td>
@@ -28,11 +28,11 @@
                 </tr>
                 <tr>
                     <td>The most popular user post (with a long text): </td>
-                    <td> @Model.Item5.Title</td>
+                    <td> @Html.ActionLink(@Model.Item5.Title, "PostResult", "Post", new { @Model.Item5.Title })</td>
                 </tr>
                 <tr>
                     <td>The most popular user post (most of the likes): </td>
-                    <td> @Model.Item6.Title</td>
+                    <td> @Html.ActionLink(@Model.Item6.Title, "PostResult", "Post", new { @Model.Item6.Title })</td>
                 </tr>
             </table>
         }

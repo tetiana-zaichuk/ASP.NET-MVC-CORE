@@ -12,8 +12,11 @@ namespace AspNetMvcCore.Controllers
             _postService = new PostService();
         }
 
-        public IActionResult Index() => View();
+        public IActionResult PostInput() => View();
 
-        public IActionResult GetPost(string name) => View(_postService.GetPost(name));
+        public IActionResult PostResult(string title) => View(_postService.PostResult(title));
+
+        public IActionResult PostResultId(int id) => View(_postService.PostResultId(id));
+
     }
 }

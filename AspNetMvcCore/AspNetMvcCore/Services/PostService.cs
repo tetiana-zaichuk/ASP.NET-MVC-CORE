@@ -6,8 +6,12 @@ namespace AspNetMvcCore.Services
 {
     public class PostService
     {
-        public List<Post> GetPost(string name)
+        public List<Post> PostResult(string title)
             => Startup.Users.SelectMany(user => user.Posts, (user, post) => new { user, post })
-                .Where(@t => @t.post.Title == name).Select(@t => (@t.post)).ToList();
+                .Where(@t => @t.post.Title == title).Select(@t => (@t.post)).ToList();
+
+        public List<Post> PostResultId(int id)
+            => Startup.Users.SelectMany(user => user.Posts, (user, post) => new { user, post })
+                .Where(@t => @t.post.Id == id).Select(@t => (@t.post)).ToList();
     }
 }

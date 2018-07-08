@@ -12,7 +12,7 @@ namespace AspNetMvcCore.Controllers
             queriesService=new QueriesService();
         }
 
-        public IActionResult Index() => View();
+        public IActionResult QueriesList() => View();
         
         public IActionResult NumberOfComments() => View();
         

@@ -16,8 +16,8 @@ namespace AspNetMvcCore.Controllers
             _todoService = new TodoService();
         }
 
-        public IActionResult Index() => View();
+        public IActionResult TodoInput() => View();
 
-        public IActionResult GetTodo(string name) => View(_todoService.GetTodo(name));
+        public IActionResult TodoResult(string name) => View(_todoService.GetTodo(name));
     }
 }

@@ -1,6 +1,6 @@
 ﻿@model AspNetMvcCore.Models.Query
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "TodoInput";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="text-center">
@@ -10,7 +10,7 @@
     <h4>Please, type the todo name.</h4>
     <br/>
     <div>
-        <form asp-controller="Todo" asp-action="GetTodo" method="post">
+        <form asp-controller="Todo" asp-action="TodoResult" method="post">
             Todo name: <input asp-for="Name"/> 
             <br/>
             <br/>

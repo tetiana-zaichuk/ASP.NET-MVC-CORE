@@ -15,20 +15,18 @@
     {
         <table class="table text-center table-responsive table-hover">
             <thead>
-                <tr><td>Post id</td><td>Column</td></tr>
+                <tr><td></td></tr>
             </thead>
             @foreach (var item in Model)
             {
                 <tbody>
                     <tr class="btn-link" type="button" id="com" data-toggle="collapse" data-target=".com">
-                        <td>@Html.DisplayFor(modelItem => item.Key)</td>
-                        <td>data</td>
+                        <td>@Html.ActionLink("Post id: " + @item.Key, "PostResultId", "Post", new { id=item.Key })</td>
                     </tr>
                     @foreach (var c in item)
                     {
                         <tr class="collapse in" id="com">
-                            <td>Comment id: @c.Id</td>
-                            <td>Comment: @c.Body</td>
+                          <td>Comment: @c.Body</td>
                         </tr>
                     }
                 </tbody>

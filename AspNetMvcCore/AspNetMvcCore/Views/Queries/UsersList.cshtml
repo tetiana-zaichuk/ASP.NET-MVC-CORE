@@ -14,23 +14,20 @@
                 <td>User name</td>
             </tr>
         </thead>
-        @foreach (var el in Model)
+        @foreach (var item in Model)
         {
             <tbody>
-                <tr class="btn-link" id="com" data-toggle="collapse">
-                    <td>@el.Id</td>
-                    <td>@el.Name</td>
-                    <td>
-                        @foreach (var t in el.Todos)
-                        {
-                            <tr class="collapse in" id="com">
-                                <td>TODO id: @t.Id</td>
-                                <td>TODO name: @t.Name</td>
-                            </tr>
-                            
-                        }
-                    </td>
+                <tr class="btn-link">
+                    <td>@item.Id</td>
+                    <td>@Html.ActionLink(@item.Name, "UserResult", "User", new { item.Name })</td>
                 </tr>
+                @foreach (var todo in item.Todos)
+                {
+                    <tr class="collapse in" id="com">
+                        <td>TODO id: @todo.Id</td>
+                        <td>TODO name: @Html.ActionLink(@todo.Name, "TodoResult", "Todo", new { todo.Name })</td>
+                    </tr>
+                }
             </tbody>
         }
     </table>

@@ -1,17 +1,17 @@
 ﻿@model AspNetMvcCore.Models.Query
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "UserInput";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="text-center">
     <br />
-    <h2>Post</h2>
+    <h2>User</h2>
     <br />
-    <h4>Please, type the post title.</h4>
+    <h4>Please, type the user name.</h4>
     <br />
     <div>
-        <form asp-controller="Post" asp-action="GetPost" method="post">
-            Post name: <input asp-for="Name" />
+        <form asp-controller="User" asp-action="UserResult" method="post">
+            User name: <input asp-for="Name" />
             <br />
             <br />
             <button type="submit"> Find </button>
@@ -19,3 +19,4 @@
         <br />
     </div>
 </div>
+

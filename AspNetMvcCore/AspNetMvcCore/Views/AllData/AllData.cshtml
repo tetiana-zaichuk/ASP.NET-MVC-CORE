@@ -1,0 +1,65 @@
+﻿@model List<DataStructuresAndLINQ.User>
+@{
+    ViewData["Title"] = "AllData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <h2>Users</h2>
+    <div>
+        <br />
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <td>Avatar</td>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>CreatedAt</td>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tbody>
+                    <tr class="bg-info">
+                        <td><img src=@item.Avatar alt="Avatar" /></td>
+                        <td>@item.Id</td>
+                        <td>@Html.ActionLink(@item.Name,"UserResult","User", new {item.Name})</td>
+                        <td>@item.Email</td>
+                        <td>@item.CreatedAt</td>
+                    </tr>
+                    @foreach (var todo in item.Todos)
+                    {
+                        <tr class="collapse in">
+                            <td> </td>
+                            <td>Todo id: @todo.Id</td>
+                            <td>Todo name: @Html.ActionLink(@todo.Name, "TodoResult", "Todo", new {todo.Name})</td>
+                            <td>Todo complete: @todo.IsComplete</td>
+                            <td>Todo created at: @todo.CreatedAt</td>
+                        </tr>
+                    }
+                    @foreach (var post in item.Posts)
+                    {
+                        <tr class="collapse in">
+                            <td>Post id: @post.Id</td>
+                            <td>Post title: @Html.ActionLink(@post.Title,"PostResult","Post", new {post.Title})</td>
+                            <td>Post body: @post.Body</td>
+                            <td>Post likes: @post.Likes</td>
+                            <td>Post created at: @post.CreatedAt</td>
+                        </tr>
+                        foreach (var c in post.Comments)
+                        {
+                        <tr class="collapse in">
+                            <td>Comment id: @c.Id</td>
+                            <td>Comment body: @c.Body</td>
+                            <td>Comment user id: @c.UserId</td>
+                            <td>Comment likes: @c.Likes</td>
+                            <td>Comment created at: @c.CreatedAt</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            }
+        </table>
+        <br />
+    </div>
+</div>

@@ -46,7 +46,7 @@ namespace AspNetMvcCore
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Queries}/{action=Index}/{id?}");
+                    template: "{controller=Queries}/{action=QueriesList}/{id?}");
             });
         }
     }

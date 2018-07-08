@@ -1,0 +1,48 @@
+﻿@model List<DataStructuresAndLINQ.Post>
+@{
+    ViewData["Title"] = "PostResultId";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Post</h2>
+<div>
+    <br />
+    <table class="table text-center">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Post title</td>
+            <td>UserId</td>
+            <td>Body</td>
+            <td>Likes</td>
+            <td>CreatedAt</td>
+        </tr>
+        </thead>
+        @foreach (var el in Model)
+        {
+            <tbody>
+            <tr class="btn-link" type="button" id="com" data-toggle="collapse">
+                <td>@el.Id</td>
+                <td>@el.Title</td>
+                <td>@el.UserId</td>
+                <td>@el.Body</td>
+                <td>@el.Likes</td>
+                <td>@el.CreatedAt</td>
+            </tr>
+            @foreach (var c in el.Comments)
+            {
+                <tr class="collapse in">
+                    <td>Comment id: @c.Id</td>
+                    <td>Comment post id: @c.PostId</td>
+                    <td>Comment body: @c.Body</td>
+                    <td>Comment likes: @c.Likes</td>
+                    <td>Comment user id: @c.UserId</td>
+                    <td>Comment created at: @c.CreatedAt</td>
+                </tr>
+            }
+            
+            </tbody>
+        }
+    </table>
+    <br />
+</div>

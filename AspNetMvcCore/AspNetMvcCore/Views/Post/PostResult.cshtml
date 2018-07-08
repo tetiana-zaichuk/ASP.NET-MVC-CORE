@@ -1,42 +1,42 @@
 ﻿@model List<DataStructuresAndLINQ.Post>
 @{
-    ViewData["Title"] = "GetPost";
+    ViewData["Title"] = "PostResult";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-center">GetPost</h2>
+<h2 class="text-center">Post</h2>
 <div>
     <br />
     <table class="table text-center">
         <thead>
             <tr>
                 <td>Id</td>
+                <td>User id</td>
                 <td>Post title</td>
-                <td>UserId</td>
                 <td>Body</td>
                 <td>Likes</td>
-                <td>CreatedAt</td>
+                <td>Created at</td>
             </tr>
         </thead>
         @foreach (var el in Model)
         {
         <tbody>
             <tr class="btn-link" type="button" id="com" data-toggle="collapse">
-                <td>@el.Id</td>
-                <td>@el.Title</td>
-                <td>@el.UserId</td>
-                <td>@el.Body</td>
-                <td>@el.Likes</td>
-                <td>@el.CreatedAt</td>
+                <th scope="row" class="text-center">@el.Id</th>
+                <th scope="row" class="text-center">@el.UserId</th>
+                <th scope="row" class="text-center">@el.Title</th>
+                <th scope="row" class="text-center">@el.Body</th>
+                <th scope="row" class="text-center">@el.Likes</th>
+                <th scope="row" class="text-center">@el.CreatedAt</th>
             </tr>
             @foreach (var c in el.Comments)
             {
             <tr class="collapse in">
                 <td>Comment id: @c.Id</td>
+                <td>Comment user id: @c.UserId</td>
                 <td>Comment post id: @c.PostId</td>
                 <td>Comment body: @c.Body</td>
                 <td>Comment likes: @c.Likes</td>
-                <td>Comment user id: @c.UserId</td>
                 <td>Comment created at: @c.CreatedAt</td>
             </tr>
             }
