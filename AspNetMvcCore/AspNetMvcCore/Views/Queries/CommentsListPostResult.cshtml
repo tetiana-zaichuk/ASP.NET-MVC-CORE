@@ -13,22 +13,27 @@
     }
     else
     {
-        <table class="table text-center table-responsive table-hover">
-            <thead>
-                <tr><td></td></tr>
-            </thead>
+        <table class="table table-responsive table-hover">
+           
             @foreach (var item in Model)
             {
                 <tbody>
-                    <tr class="btn-link">
-                        <td>@Html.ActionLink("Post id: " + @item.Key, "PostResultId", "Post", new { id=item.Key })</td>
+                    <tr class="btn-link text-center">
+                        <td>@Html.ActionLink("Post id: " + @item.Key, "PostResultId", "Post", new { id = item.Key })</td>
                     </tr>
-                    @foreach (var c in item)
-                    {
-                        <tr class="collapse in">
-                          <td>Comment: @c.Body</td>
-                        </tr>
-                    }
+                    <tr class="btn-link text-left" type="button" data-toggle="collapse" data-target="#col_@item.Key">
+                        <td colspan="2">Comments</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="collapse in bg-success" id="col_@item.Key">
+                                @foreach (var c in item)
+                                {
+                                    <div>Comment: @c.Body</div>
+                                }
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             }
 

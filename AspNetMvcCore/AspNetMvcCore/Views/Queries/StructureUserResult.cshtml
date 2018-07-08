@@ -9,7 +9,7 @@
         <br />
         @if (Model.Item2 != null && Model.Item3 != null && Model.Item4 != null)
         {
-            <table class="table text-center">
+            <table class="table text-center table-hover">
                 <tr>
                     <td>User name: </td>
                     <td> @Html.ActionLink(@Model.Item1.Name, "UserResult", "User", new { @Model.Item1.Name })</td>

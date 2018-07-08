@@ -3,16 +3,16 @@
     ViewData["Title"] = "UserResult";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="text-center">
-    <h2>User</h2>
+<div >
+    <h2 class="text-center">User</h2>
     <div>
         <br />
-        <img src=@Model.Avatar alt="Avatar" />
+        <img class="center-block" src=@Model.Avatar alt="Avatar" />
         <br />
         <br />
-        <table class="table text-center">
+        <table class="table table-hover">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <td>Id</td>
                     <td>Name</td>
                     <td>Email</td>
@@ -20,30 +20,48 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="btn-link" type="button" data-toggle="collapse">
-                    <th scope="row" class="text-center">@Model.Id</th>
-                    <th scope="row" class="text-center">@Model.Name</th>
-                    <th scope="row" class="text-center">@Model.Email</th>
-                    <th scope="row" class="text-center">@Model.CreatedAt</th>
-                </tr>
-                @foreach (var todo in Model.Todos)
+            <tr class="btn-link text-center" type="button" data-toggle="collapse">
+                <th scope="row" class="text-center">@Model.Id</th>
+                <th scope="row" class="text-center">@Model.Name</th>
+                <th scope="row" class="text-center">@Model.Email</th>
+                <th scope="row" class="text-center">@Model.CreatedAt</th>
+            </tr>
+            <tr class="btn-link text-left" type="button" data-toggle="collapse" data-target="#col_@Model.Id">
+                <td colspan="4" >Todos</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                <div class="collapse in bg-success" id="col_@Model.Id">
+                    @foreach (var todo in Model.Todos)
+                    {
+                        <div>
+                           Todo id: @todo.Id <br/>
+                           Todo name: @Html.ActionLink(@todo.Name, "TodoResult", "Todo", new { todo.Name })<br />
+                           Todo complete: @todo.IsComplete<br />
+                           Todo created at: @todo.CreatedAt
+                        </div>
+                    }
+                    </div>
+                </td>
+            </tr>
+            <tr class="btn-link text-left" type="button" data-toggle="collapse" data-target="#col">
+                <td colspan="4">Posts</td>
+            </tr>
+            <tr>
+            <td colspan="4">
+            <div class="collapse in bg-success" id="col">
+            @foreach (var post in Model.Posts)
                 {
-                    <tr class="collapse in">
-                        <td>Todo id: @todo.Id</td>
-                        <td>Todo name: @Html.ActionLink(@todo.Name, "TodoResult", "Todo", new { todo.Name })</td>
-                        <td>Todo complete: @todo.IsComplete</td>
-                        <td>Todo created at: @todo.CreatedAt</td>
-                    </tr>
+                    <div>
+                        Post likes: @post.Likes<br/>
+                        Post title: @Html.ActionLink(@post.Title, "PostResult", "Post", new { post.Title })<br/>
+                        Post body: @post.Body<br/>
+                        Post created at: @post.CreatedAt
+                    </div>
                 }
-                @foreach (var post in Model.Posts)
-                {
-                    <tr class="collapse in">
-                        <td>Post likes: @post.Likes</td>
-                        <td>Post title: @Html.ActionLink(@post.Title, "PostResult", "Post", new { post.Title })</td>
-                        <td>Post body: @post.Body</td>
-                        <td>Post created at: @post.CreatedAt</td>
-                    </tr>
-                }
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
         <br />

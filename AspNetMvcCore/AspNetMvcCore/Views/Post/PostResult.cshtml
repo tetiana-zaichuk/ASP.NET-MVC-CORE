@@ -7,9 +7,9 @@
 <h2 class="text-center">Post</h2>
 <div>
     <br />
-    <table class="table text-center">
+    <table class="table table-hover">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <td>Id</td>
                 <td>User id</td>
                 <td>Post title</td>
@@ -20,29 +20,37 @@
         </thead>
         @foreach (var el in Model)
         {
-        <tbody>
-            <tr class="btn-link" type="button" id="com" data-toggle="collapse">
-                <th scope="row" class="text-center">@el.Id</th>
-                <th scope="row" class="text-center">@el.UserId</th>
-                <th scope="row" class="text-center">@el.Title</th>
-                <th scope="row" class="text-center">@el.Body</th>
-                <th scope="row" class="text-center">@el.Likes</th>
-                <th scope="row" class="text-center">@el.CreatedAt</th>
-            </tr>
-            @foreach (var c in el.Comments)
-            {
-            <tr class="collapse in">
-                <td>Comment id: @c.Id</td>
-                <td>Comment user id: @c.UserId</td>
-                <td>Comment post id: @c.PostId</td>
-                <td>Comment body: @c.Body</td>
-                <td>Comment likes: @c.Likes</td>
-                <td>Comment created at: @c.CreatedAt</td>
-            </tr>
-            }
-            
-        </tbody>
-        }
-    </table>
-    <br />
+            <tbody>
+                <tr class="btn-link text-center" type="button" id="com" data-toggle="collapse">
+                    <th scope="row" class="text-center">@el.Id</th>
+                    <th scope="row" class="text-center">@el.UserId</th>
+                    <th scope="row" class="text-center">@el.Title</th>
+                    <th scope="row" class="text-center">@el.Body</th>
+                    <th scope="row" class="text-center">@el.Likes</th>
+                    <th scope="row" class="text-center">@el.CreatedAt</th>
+                </tr>
+                <tr class="btn-link text-left" type="button" data-toggle="collapse" data-target="#col_@el.Id">
+                    <td colspan="6">Comments</td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <div class="collapse in bg-success" id="col_@el.Id">
+                            @foreach (var c in el.Comments)
+                            {
+                                <div>
+                                    Comment id: @c.Id <br/>
+                                    Comment user id: @c.UserId<br />
+                                    Comment post id: @c.PostId<br />
+                                    Comment body: @c.Body<br />
+                                    Comment likes: @c.Likes<br />
+                                    Comment created at: @c.CreatedAt
+                                 </div>
+                                 }
+                            </div>
+                            </td>
+                            </tr>
+                            </tbody>
+         }
+        </table>
+        <br />
 </div>
