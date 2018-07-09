@@ -34,7 +34,7 @@
                 <div class="collapse in bg-success" id="col_@Model.Id">
                     @foreach (var todo in Model.Todos)
                     {
-                        <div>
+                        <div class="col-md-12 text-center">
                            Todo id: @todo.Id <br/>
                            Todo name: @Html.ActionLink(@todo.Name, "TodoResult", "Todo", new { todo.Name })<br />
                            Todo complete: @todo.IsComplete<br />
